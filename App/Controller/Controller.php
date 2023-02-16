@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Controller;
+
+abstract class Controller
+{
+
+    protected static function GetResponseAsJSON($data)
+    {
+
+        header("Access-Control-Allow-Origin: *");
+        header("Content-type: application/json; charset=utf-8");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Pragma: public");
+
+        exit(json_encode($data));
+
+    }
+
+}
+
+?>
