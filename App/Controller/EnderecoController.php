@@ -5,17 +5,6 @@ namespace App\Controller;
 class EnderecoController extends Controller
 {
 
-    /*public static function Teste()
-    {
-
-        $cidades = ["Jaú", "Bariri", "Itapuí", "Dois Córregos"];
-
-        var_dump($cidades);
-
-        parent::GetResponseAsJSON($cidades);
-
-    }*/
-
     public static function GetCEPByLogradouro() : void
     {
 
@@ -33,7 +22,7 @@ class EnderecoController extends Controller
     public static function GetLogradouroByCEP() : void
     {
 
-
+        
 
     }
 
