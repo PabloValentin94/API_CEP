@@ -4,6 +4,9 @@ namespace App\DAO;
 
 use \PDO;
 
+use Exception;
+use PDOException;
+
 abstract class DAO
 {
 
@@ -12,13 +15,33 @@ abstract class DAO
     protected function __construct()
     {
 
-        $dsn = "mysql:host=" . $_ENV["db"]["host"] . ";dbname=" . $_ENV["db"]["database_name"];
+        try
+        {
 
-        $user = $_ENV["db"]["user"];
+            $dsn = "mysql:host=" . $_ENV["db"]["host"] . ";dbname=" . $_ENV["db"]["database_name"];
 
-        $password = $_ENV["db"]["password"];
+            $user = $_ENV["db"]["user"];
 
-        $this->conexao = new PDO($dsn, $user, $password);
+            $password = $_ENV["db"]["password"];
+
+            $options = [
+
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+
+            ];
+
+            $this->conexao = new PDO($dsn, $user, $password, $options);
+
+        }
+
+        catch(PDOException $e)
+        {
+
+            throw new Exception("Ocorreu um erro!", 0, $e);
+
+        }
         
     }
 

@@ -7,6 +7,7 @@ define("BASEDIR", dirname(__FILE__, 2) . "/");
 $_ENV["db"]["host"] = "localhost:3307";
 $_ENV["db"]["user"] = "root";
 $_ENV["db"]["password"] = "etecjau";
-$_ENV["db"]["database_name"] = "";
+$_ENV["db"]["database_name"] = "busca_by_cep";
+//$_ENV["db"]["database_name"] = "db_cep";
 
 ?>
