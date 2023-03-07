@@ -7,7 +7,7 @@ use \PDO;
 use Exception;
 use PDOException;
 
-abstract class DAO
+abstract class DAO extends PDO
 {
 
     protected $conexao;
