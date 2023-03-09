@@ -38,7 +38,7 @@ class EnderecoDAO extends DAO
 
         $stmt->execute();
 
-        return $stmt->fetchObject("App\Model\EnderecoModel");
+        $endereco_obj = $stmt->fetchObject("App\Model\EnderecoModel");
 
         $endereco_obj->lista_cidades = $this->SelectCidadesByUF($endereco_obj->UF);
 
@@ -58,6 +58,34 @@ class EnderecoDAO extends DAO
         $stmt->bindValue(1, $id_cidade);
 
         $stmt->execute();
+
+        return $stmt->fetchAll(DAO::FETCH_CLASS);
+
+    }
+
+    public function SelectBairrosByIDCidade(int $id_cidade)
+    {
+
+        $sql = "SELECT descricao_bairro FROM Logradouro WHERE id_cidade = ? GROUP BY descricao_bairro";
+
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(1, $id_cidade);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(DAO::FETCH_CLASS);
+
+    }
+
+    public function SelectCEPByLogradouro($logradouro)
+    {
+
+        $sql = "SELECT * FROM Logradouro WHERE descricao_sem_numero LIKE :valor";
+
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->execute([":valor" => "%" . $logradouro . "%"]);
 
         return $stmt->fetchAll(DAO::FETCH_CLASS);
 

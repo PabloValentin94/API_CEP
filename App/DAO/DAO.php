@@ -36,10 +36,10 @@ abstract class DAO extends PDO
 
         }
 
-        catch(PDOException $e)
+        catch(PDOException $ex)
         {
 
-            throw new Exception("Ocorreu um erro!", 0, $e);
+            throw new Exception("Ocorreu um erro!", 0, $ex);
 
         }
         
