@@ -36,6 +36,48 @@ class EnderecoModel extends Model
 
     }
 
+    public function GetCEPByLogradouro(int $logradouro)
+    {
+
+        try
+        {
+
+            $dao = new EnderecoDAO();
+
+            $this->rows = $dao->SelectCEPByLogradouro($logradouro);
+
+        }
+
+        catch (Exception $ex)
+        {
+
+            echo $ex->getMessage();
+
+        }
+
+    }
+
+    public function GetBairrosByIDCidade(int $id_cidade)
+    {
+
+        try
+        {
+
+            $dao = new EnderecoDAO();
+
+            $this->rows = $dao->SelectBairrosByIDCidade($id_cidade);
+
+        }
+
+        catch (Exception $ex)
+        {
+
+            echo $ex->getMessage();
+
+        }
+
+    }
+
 }
 
 ?>
