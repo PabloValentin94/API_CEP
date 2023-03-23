@@ -23,7 +23,6 @@ class EnderecoController extends Controller
 
             parent::GetResponseAsJSON($model->rows);
 
-
         }
 
         catch(Exception $ex)

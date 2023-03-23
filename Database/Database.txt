@@ -1,1 +1,7 @@
+Arquivo Escrito:
+
 https://cep.metoda.com.br/Banco/Dados.zip
+
+Modelagem:
+
+https://cep.metoda.com.br/Banco/Modelagem.mwb
