@@ -62,7 +62,7 @@ abstract class Controller
     protected static function IsGet() : void
     {
 
-        if($_SERVER["REQUESTED_METHOD"] !== "GET")
+        if($_SERVER["REQUEST_METHOD"] !== "GET")
         {
 
             throw new Exception("O método de requisição deve ser GET!");
@@ -74,7 +74,7 @@ abstract class Controller
     protected static function IsPost() : void
     {
 
-        if($_SERVER["REQUESTED_METHOD"] !== "POST")
+        if($_SERVER["REQUEST_METHOD"] !== "POST")
         {
 
             throw new Exception("O método de requisição deve ser POST!");
@@ -88,7 +88,7 @@ abstract class Controller
 
         self::IsGet();
 
-        if(empty($var_get))
+        if(!empty($var_get))
         {
 
             return (int) $var_get;
@@ -109,7 +109,7 @@ abstract class Controller
 
         self::IsGet();
 
-        if(empty($var_get))
+        if(!empty($var_get))
         {
 
             return (string) $var_get;

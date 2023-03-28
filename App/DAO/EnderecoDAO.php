@@ -15,13 +15,16 @@ class EnderecoDAO extends DAO
     public function SelectCidadesByUF(string $uf)
     {
 
-        $sql = "SELECT * FROM Logradouro WHERE uf = ? ORDER BY descricao ASC";
+        $sql = "SELECT * FROM Logradouro WHERE uf = ? LIMIT 1000";
 
         $stmt = $this->conexao->prepare($sql);
 
         $stmt->bindValue(1, $uf);
 
         $stmt->execute();
+
+        //echo $uf;
+        //echo $stmt->rowCount();
 
         return $stmt->fetchAll(DAO::FETCH_CLASS);
 
