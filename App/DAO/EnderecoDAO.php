@@ -58,7 +58,7 @@ class EnderecoDAO extends DAO
 
         $stmt->bindValue(1, $bairro);
 
-        $stmt->bindValue(1, $id_cidade);
+        $stmt->bindValue(2, $id_cidade);
 
         $stmt->execute();
 
@@ -81,10 +81,10 @@ class EnderecoDAO extends DAO
 
     }
 
-    public function SelectCEPByLogradouro($logradouro)
+    public function SelectCEPByLogradouro(string $logradouro)
     {
 
-        $sql = "SELECT * FROM Logradouro WHERE descricao_sem_numero LIKE :valor";
+        $sql = "SELECT * FROM Logradouro WHERE descricao_sem_numero LIKE :valor LIMIT 1000";
 
         $stmt = $this->conexao->prepare($sql);
 

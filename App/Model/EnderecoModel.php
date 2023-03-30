@@ -57,7 +57,7 @@ class EnderecoModel extends Model
 
     }
 
-    public function GetCEPByLogradouro(int $logradouro)
+    public function GetCEPByLogradouro(string $logradouro)
     {
 
         try
