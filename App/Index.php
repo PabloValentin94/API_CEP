@@ -24,6 +24,12 @@ include "Rotas.php";
     /cidade/by-uf?uf=SP
     /bairro/by-cidade?id_cidade=4874
 
+    http://10.0.2.2:8000/endereco/by-cep?cep=17210580
+    http://10.0.2.2:8000/logradouro/by-bairro?id_cidade=4874&bairro=Centro
+    http://10.0.2.2:8000/cep/by-logradouro?logradouro=Rua
+    http://10.0.2.2:8000/cidade/by-uf?uf=SP
+    http://10.0.2.2:8000/bairro/by-cidade?id_cidade=4874
+
 */
 
 ?>

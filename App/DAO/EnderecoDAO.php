@@ -15,7 +15,7 @@ class EnderecoDAO extends DAO
     public function SelectCidadesByUF(string $uf)
     {
 
-        $sql = "SELECT * FROM Logradouro WHERE uf = ? LIMIT 1000";
+        $sql = "SELECT * FROM Cidade WHERE uf = ? LIMIT 1000";
 
         $stmt = $this->conexao->prepare($sql);
 
