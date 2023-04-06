@@ -42,7 +42,7 @@ class EnderecoController extends Controller
 
             $bairro = parent::GetStringFromURL(isset($_GET["bairro"]) ? $_GET["bairro"] : null, "bairro");
 
-            $id_cidade = parent::GetIntFromURL(isset($_GET["id_cidade"]) ? $_GET["id_cidade"] : null, "cep");
+            $id_cidade = parent::GetIntFromURL(isset($_GET["id_cidade"]) ? $_GET["id_cidade"] : null, "id_cidade");
 
             $model = new EnderecoModel();
 
